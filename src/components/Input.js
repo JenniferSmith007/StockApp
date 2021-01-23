@@ -24,7 +24,7 @@ function Input() {
         }}
       ></input>
       <button className="searched" onClick={getDataTwo}>
-        Click Me!
+        search
       </button>
     </div>
   );

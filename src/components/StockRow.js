@@ -54,19 +54,14 @@ class StockRow extends Component {
   // bind returns a new function, sets to a specific value.
   render() {
     return (
-      <tr>
-        <td>{this.props.ticker}</td>
-        <td>{this.state.average}</td>
-        <td>{this.state.date}</td>
-        <td>{this.state.high}</td>
-        <td>{this.state.low}</td>
+      <div className="StockInfo">
+        <div className="ticker"> {this.props.ticker} </div>
+        <div className="av"> {this.state.average}</div>
 
         <span className="change" style={this.styler()}>
-          <td>{this.state.changeDollar}</td>
-          <td>{this.state.change_Percentage}</td>
-          {Input}
+          <div className="perc">{this.state.change_Percentage}</div>
         </span>
-      </tr>
+      </div>
     );
   }
 }

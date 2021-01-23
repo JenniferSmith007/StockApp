@@ -1,4 +1,10 @@
+import Stockheader from "../Images/Stockheader.png";
+
 function Header() {
-  return <h1>Hello</h1>;
+  return (
+    <header>
+      <img src={Stockheader} alt="" />
+    </header>
+  );
 }
 export default Header;

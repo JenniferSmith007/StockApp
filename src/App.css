@@ -1,3 +1,70 @@
+body {
+  background-color: cornflowerblue;
+  background-image: url(components/Images/stonks.png);
+  background-size: cover;
+}
 .App {
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 690px;
+  width: 397px;
   text-align: center;
+  background-color: black;
+  border: solid;
+  border-color: cornsilk;
+  border-radius: 5px;
+}
+.holder {
+  height: 190px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 400px) {
+  .App {
+    margin: 0 auto;
+
+    height: 690px;
+    width: 397px;
+    text-align: center;
+    background-color: black;
+    border: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+  }
+}
+.ticker {
+  color: white;
+  text-align: center;
+  justify-content: flex-start;
+  margin: 0;
+  margin-left: -60px;
+  font-size: 28px;
+}
+.av {
+  color: white;
+  float: right;
+  margin: 0;
+  margin-top: -27px;
+  margin-right: -200px;
+  font-size: 28px;
+}
+.perc {
+  float: right;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  margin-right: -200px;
+  font-size: 18px;
+}
+
+input {
+  margin: 0;
+  margin-top: 98px;
+  margin-left: 130px;
+}
+button {
+  width: 80px;
+  margin-left: 160px;
 }
