@@ -3,6 +3,7 @@ import "./App.css";
 // import Stocks from "./components/Stocks";
 // import SearchedStocks from "./components/SearchedStocks";
 import StockRow from "./components/StockRow";
+import Input from "./components/Input";
 
 function App() {
   return (
@@ -19,13 +20,15 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <StockRow ticker="aapl" />
-          <StockRow ticker="goog" />
-          <StockRow ticker="msft" />
           <StockRow ticker="tsla" />
+          <StockRow ticker="spy" />
+          <StockRow ticker="fb" />
+          <StockRow ticker="snap" />
         </tbody>
       </table>
-      <div className="container">Hello</div>
+      <div className="container">
+        <Input />
+      </div>
     </div>
   );
 }

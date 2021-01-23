@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-import { stock } from "../Services/Stocks";
+import Input from "../components/Input";
+import { Stocks } from "../Services/Stocks";
 
 class StockRow extends Component {
   constructor(props) {
@@ -14,27 +14,42 @@ class StockRow extends Component {
       change_Percentage: null,
     };
   }
+  styler() {
+    let color;
+    if (this.state.changeDollar > 0) {
+      color = `#00ff00`;
+    } else {
+      color = `#ff3300`;
+    }
+    return {
+      color: color,
+      fontSize: `0.8rem`,
+      marginLeft: 5,
+    };
+  }
   setData(data) {
     console.log(data);
     this.setState({
-      average: data.average.toFixed(2),
+      average: data.average,
       date: data.date,
       high: data.high,
       low: data.low,
     });
-    stock.getChangepercentage(this.props.ticker, data.date, (yesterday) => {
+    Stocks.getChangepercentage(this.props.ticker, data.date, (yesterday) => {
       console.log(this.props.ticker, yesterday);
       const changeDollar = (data.average - yesterday.average).toFixed(2);
+      const change_Percentage = (
+        (100 * changeDollar) /
+        yesterday.average
+      ).toFixed(1);
       this.setState({
-        changeDollar: changeDollar,
-        change_Percentage: (100 * changeDollar / yesterday.average).toFixed(
-          1
-        ),
+        changeDollar: `${changeDollar}`,
+        change_Percentage: `(${change_Percentage}%)`,
       });
     });
   }
   componentDidMount() {
-    stock.latestPrice(this.props.ticker, this.setData.bind(this));
+    Stocks.latestPrice(this.props.ticker, this.setData.bind(this));
   }
   // bind returns a new function, sets to a specific value.
   render() {
@@ -45,9 +60,12 @@ class StockRow extends Component {
         <td>{this.state.date}</td>
         <td>{this.state.high}</td>
         <td>{this.state.low}</td>
-        <td>{this.state.changeDollar}</td>
-        <td>{this.state.change_Percentage}</td>
-        <td>4</td>
+
+        <span className="change" style={this.styler()}>
+          <td>{this.state.changeDollar}</td>
+          <td>{this.state.change_Percentage}</td>
+          {Input}
+        </span>
       </tr>
     );
   }
